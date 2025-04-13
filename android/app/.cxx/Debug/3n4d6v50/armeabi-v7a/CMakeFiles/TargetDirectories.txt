@@ -1,0 +1,2 @@
+/Users/sakshamsrivastava/StudioProjects/multi_language_app/android/app/.cxx/Debug/3n4d6v50/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/sakshamsrivastava/StudioProjects/multi_language_app/android/app/.cxx/Debug/3n4d6v50/armeabi-v7a/CMakeFiles/rebuild_cache.dir

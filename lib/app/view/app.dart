@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:multi_language_app/counter/counter.dart';
 import 'package:multi_language_app/l10n/l10n.dart';
+import 'package:multi_language_app/screens/first_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const FirstScreen(),
     );
   }
 }

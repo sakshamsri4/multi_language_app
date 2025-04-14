@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multi_language_app/l10n/l10n.dart';
+import 'package:multi_language_app/widgets/theme_toggle.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
@@ -10,11 +11,7 @@ class SecondScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.counterAppBarTitle),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        actions: const [ThemeToggleButton()],
       ),
       body: Center(
         child: Padding(

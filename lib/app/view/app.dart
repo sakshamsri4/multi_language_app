@@ -30,7 +30,7 @@ class App extends StatelessWidget {
                 supportedLocales: AppLocalizations.supportedLocales,
                 locale: languageState.locale,
                 home: FlutterSplashScreen(
-                  duration: const Duration(milliseconds: 5000),
+                  duration: const Duration(milliseconds: 2000),
                   nextScreen: const FirstScreen(),
                   backgroundColor: themeState == ThemeMode.dark
                       ? Colors.black

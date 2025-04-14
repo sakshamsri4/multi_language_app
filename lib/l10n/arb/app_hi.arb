@@ -1,38 +1,38 @@
 {
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
+    "@@locale": "hi",
+    "counterAppBarTitle": "काउंटर",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
     },
-    "welcomeMessage": "Welcome to the App",
+    "welcomeMessage": "ऐप में आपका स्वागत है",
     "@welcomeMessage": {
         "description": "Welcome message on the home screen"
     },
-    "continueButton": "Continue",
+    "continueButton": "जारी रखें",
     "@continueButton": {
         "description": "Label for the continue button"
     },
-    "secondScreenMessage": "You are now on the second screen.",
+    "secondScreenMessage": "आप अब दूसरी स्क्रीन पर हैं।",
     "@secondScreenMessage": {
         "description": "Message shown on the second screen"
     },
-    "languageSelectionLabel": "Select Language",
+    "languageSelectionLabel": "भाषा चुनें",
     "@languageSelectionLabel": {
         "description": "Label for language selection dropdown"
     },
-    "english": "English",
+    "english": "अंग्रेज़ी",
     "@english": {
         "description": "English language name"
     },
-    "hindi": "Hindi",
+    "hindi": "हिन्दी",
     "@hindi": {
         "description": "Hindi language name"
     },
-    "bengali": "Bengali",
+    "bengali": "बंगाली",
     "@bengali": {
         "description": "Bengali language name"
     },
-    "backButton": "Back",
+    "backButton": "वापस जाएं",
     "@backButton": {
         "description": "Label for back button"
     }

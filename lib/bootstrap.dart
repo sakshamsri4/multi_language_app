@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
+import 'package:multi_language_app/services/language_storage_service.dart';
 import 'package:multi_language_app/services/theme_storage_service.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -23,24 +24,41 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
+Future<void> _initializeHive() async {
+  final appDocumentDir = await getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDir.path);
+}
+
+Future<void> _initializeServices() async {
+  // Initialize ThemeStorageService
+  final themeService = ThemeStorageService();
+  await themeService.init();
+
+  // Initialize LanguageStorageService
+  final languageService = LanguageStorageService();
+  await languageService.init();
+}
+
+Future<void> _setupErrorHandling() async {
+  FlutterError.onError = (details) {
+    log(details.exceptionAsString(), stackTrace: details.stack);
+  };
+  Bloc.observer = const AppBlocObserver();
+}
+
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   // Initialize Flutter binding
   WidgetsFlutterBinding.ensureInitialized();
 
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
-
-  Bloc.observer = const AppBlocObserver();
+  // Setup error handling
+  await _setupErrorHandling();
 
   // Initialize Hive
-  final appDocumentDir = await getApplicationDocumentsDirectory();
-  Hive.init(appDocumentDir.path);
+  await _initializeHive();
 
-  // Initialize ThemeStorageService
-  await ThemeStorageService.init();
+  // Initialize services
+  await _initializeServices();
 
-  // Add cross-flavor configuration here
-
+  // Run the app
   runApp(await builder());
 }

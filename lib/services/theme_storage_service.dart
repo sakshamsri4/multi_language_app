@@ -1,26 +1,28 @@
 import 'package:hive/hive.dart';
+import 'package:multi_language_app/services/theme_storage_interface.dart';
 
-class ThemeStorageService {
+class ThemeStorageService implements ThemeStorageInterface {
   static const String boxName = 'themeBox';
   static const String keyThemeMode = 'themeMode';
 
-  /// Initialize the Hive box for theme settings
-  static Future<void> init() async {
+  static Box<String>? _box;
+
+  @override
+  Future<void> init() async {
     if (!Hive.isBoxOpen(boxName)) {
-      await Hive.openBox<String>(boxName);
+      _box = await Hive.openBox<String>(boxName);
+    } else {
+      _box = Hive.box<String>(boxName);
     }
   }
 
-  /// Returns the Hive box for theme settings
-  static Box<String> get themeBox => Hive.box(boxName);
-
-  /// Saves the current theme mode as a string ('light' or 'dark')
-  static Future<void> saveThemeMode(String themeMode) async {
-    await themeBox.put(keyThemeMode, themeMode);
+  @override
+  Future<void> saveThemeMode(String themeMode) async {
+    await _box?.put(keyThemeMode, themeMode);
   }
 
-  /// Retrieves the saved theme mode, defaulting to 'light'
-  static String getSavedThemeMode() {
-    return themeBox.get(keyThemeMode, defaultValue: 'light')!;
+  @override
+  String getSavedThemeMode() {
+    return _box?.get(keyThemeMode, defaultValue: 'light') ?? 'light';
   }
 }

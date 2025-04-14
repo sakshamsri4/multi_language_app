@@ -1,3 +1,4 @@
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multi_language_app/bloc/theme_cubit.dart';
@@ -28,7 +29,33 @@ class App extends StatelessWidget {
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
                 locale: languageState.locale,
-                home: const FirstScreen(),
+                home: FlutterSplashScreen(
+                  duration: const Duration(milliseconds: 5000),
+                  nextScreen: const FirstScreen(),
+                  backgroundColor: themeState == ThemeMode.dark
+                      ? Colors.black
+                      : Colors.white,
+                  splashScreenBody: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/app_logo.png',
+                          width: 150,
+                          height: 150,
+                        ),
+                        const SizedBox(height: 20),
+                        const Text(
+                          'Multi Language App',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               );
             },
           );

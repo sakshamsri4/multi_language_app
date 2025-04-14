@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  /// Light Theme: Crisp white backgrounds, subtle shadows, and a gentle brand accent.
+  /// Light Theme: Crisp white backgrounds,
+  ///  subtle shadows, and a gentle brand accent.
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     // Define a custom ColorScheme for the light theme.

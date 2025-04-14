@@ -1,0 +1,27 @@
+multi_language_app/
+├── android/                 # Android-specific files
+├── ios/                     # iOS-specific files
+├── macos/                   # macOS-specific files
+├── windows/                 # Windows-specific files
+├── lib/                     # Main Dart code
+│   ├── app/                 # App-level components
+│   │   └── view/
+│   │       └── app.dart     # Main app widget
+│   ├── l10n/                # Localization
+│   │   └── arb/             # ARB translation files
+│   │       ├── app_en.arb   # English translations
+│   │       ├── app_es.arb   # Spanish translations
+│   │       └── app_bn.arb   # Bengali translations
+│   ├── language/            # Language management
+│   │   ├── language_bloc.dart
+│   │   └── language_selector.dart
+│   ├── screens/             # App screens
+│   ├── bootstrap.dart       # App initialization
+│   ├── main_development.dart # Entry point for development
+│   ├── main_production.dart # Entry point for production
+│   └── main_staging.dart    # Entry point for staging
+├── test/                    # Test files
+├── .gitignore               # Git ignore file
+├── pubspec.yaml             # Flutter dependencies
+├── README.md                # Project documentation
+└── l10n.yaml                # Localization configuration

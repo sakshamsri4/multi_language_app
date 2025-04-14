@@ -4,11 +4,10 @@ import 'package:multi_language_app/services/theme_storage_interface.dart';
 import 'package:multi_language_app/services/theme_storage_service.dart';
 
 class ThemeCubit extends Cubit<ThemeMode> {
-  final ThemeStorageInterface _storageService;
-
   ThemeCubit({ThemeStorageInterface? storageService})
       : _storageService = storageService ?? ThemeStorageService(),
         super(_getInitialTheme(storageService ?? ThemeStorageService()));
+  final ThemeStorageInterface _storageService;
 
   // Get the initial theme from the stored value.
   static ThemeMode _getInitialTheme(ThemeStorageInterface storageService) {
